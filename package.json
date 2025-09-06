@@ -1,0 +1,54 @@
+{
+  "name": "@upliftai/assistant-widget",
+  "version": "0.0.1",
+  "description": "A lightweight, customizable widget for Uplift AI assistants with LiveKit integration",
+  "main": "dist/upliftai-widget.umd.js",
+  "module": "dist/upliftai-widget.es.js",
+  "types": "dist/index.d.ts",
+  "unpkg": "dist/upliftai-widget.umd.js",
+  "jsdelivr": "dist/upliftai-widget.umd.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "preview": "vite preview",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "upliftai",
+    "assistant",
+    "widget",
+    "livekit",
+    "webrtc",
+    "preact",
+    "voice",
+    "ai"
+  ],
+  "author": "Uplift AI",
+  "license": "MIT",
+  "dependencies": {
+    "livekit-client": "^2.15.6",
+    "preact": "^10.27.1",
+    "preact-custom-element": "^4.4.0"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.2",
+    "@types/node": "^22.0.0",
+    "rimraf": "^6.0.1",
+    "terser": "^5.44.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uplift-initiative/assistant-widget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uplift-initiative/assistant-widget/issues"
+  },
+  "homepage": "https://github.com/uplift-initiative/assistant-widget#readme"
+}

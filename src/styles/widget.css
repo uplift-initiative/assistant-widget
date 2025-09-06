@@ -1,0 +1,233 @@
+/* Uplift AI Widget Styles - All classes prefixed with 'upliftai-' */
+
+/* Container and Layout */
+.upliftai-widget-container {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.upliftai-widget-container.upliftai-bottom-right {
+  bottom: 24px;
+  right: 24px;
+}
+
+.upliftai-widget-container.upliftai-bottom-left {
+  bottom: 24px;
+  left: 24px;
+}
+
+.upliftai-widget-container.upliftai-top-right {
+  top: 24px;
+  right: 24px;
+}
+
+.upliftai-widget-container.upliftai-top-left {
+  top: 24px;
+  left: 24px;
+}
+
+/* Visualizer Container */
+.upliftai-visualizer {
+  height: 0;
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.upliftai-visualizer.upliftai-expanded {
+  height: 48px;
+  opacity: 1;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+}
+
+.upliftai-visualizer.upliftai-expanded.upliftai-small {
+  width: 180px;
+}
+
+.upliftai-visualizer.upliftai-expanded.upliftai-medium {
+  width: 200px;
+}
+
+.upliftai-visualizer.upliftai-expanded.upliftai-large {
+  width: 220px;
+}
+
+.upliftai-visualizer.upliftai-theme-light {
+  background-color: #fafafa;
+}
+
+.upliftai-visualizer.upliftai-theme-dark {
+  background-color: #1f2937;
+}
+
+/* Position ordering for left-side layouts */
+.upliftai-bottom-left .upliftai-visualizer,
+.upliftai-top-left .upliftai-visualizer {
+  order: 2;
+}
+
+.upliftai-bottom-left .upliftai-trigger-wrapper,
+.upliftai-top-left .upliftai-trigger-wrapper {
+  order: 1;
+}
+
+/* Trigger Button */
+.upliftai-trigger {
+  border-radius: 9999px;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transform: scale(1);
+  background-color: var(--upliftai-primary, #3B82F6);
+}
+
+.upliftai-trigger.upliftai-active {
+  background-color: #ef4444;
+}
+
+.upliftai-trigger:hover {
+  transform: scale(1.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.upliftai-trigger.upliftai-small {
+  width: 48px;
+  height: 48px;
+}
+
+.upliftai-trigger.upliftai-medium {
+  width: 56px;
+  height: 56px;
+}
+
+.upliftai-trigger.upliftai-large {
+  width: 64px;
+  height: 64px;
+}
+
+/* Icons */
+.upliftai-icon {
+  fill: none;
+  stroke: currentColor;
+}
+
+.upliftai-icon.upliftai-small {
+  width: 20px;
+  height: 20px;
+}
+
+.upliftai-icon.upliftai-medium {
+  width: 24px;
+  height: 24px;
+}
+
+.upliftai-icon.upliftai-large {
+  width: 28px;
+  height: 28px;
+}
+
+.upliftai-icon-spin {
+  animation: upliftai-spin 1s linear infinite;
+}
+
+.upliftai-icon-end-call {
+  transform: rotate(135deg);
+}
+
+/* Bar Visualizer */
+.upliftai-bars-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 28px;
+  padding: 0 12px;
+}
+
+.upliftai-bar {
+  width: 2.5px;
+  border-radius: 1.5px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.upliftai-bar.upliftai-animated {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.upliftai-bar.upliftai-audio {
+  transition: all 0.15s ease;
+}
+
+/* Bar State Classes */
+.upliftai-bar-active {
+  background-color: #6b7280;
+  opacity: 0.9;
+}
+
+.upliftai-bar-inactive {
+  background-color: #d1d5db;
+  opacity: 0.5;
+}
+
+.upliftai-bar-connecting {
+  background-color: #9ca3af;
+  opacity: 0.9;
+}
+
+.upliftai-bar-inactive-light {
+  background-color: #e5e7eb;
+  opacity: 0.5;
+}
+
+.upliftai-bar-thinking {
+  background-color: #6b7280;
+  opacity: 0.9;
+}
+
+.upliftai-bar-idle {
+  background-color: #9ca3af;
+  opacity: 0.5;
+}
+
+/* Error Message */
+.upliftai-error {
+  color: #ef4444;
+  font-size: 14px;
+  padding: 0 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Content Wrapper */
+.upliftai-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animations */
+@keyframes upliftai-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

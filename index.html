@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uplift AI Assistant Widget Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #fff, #888);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .subtitle {
+      font-size: 1.1rem;
+      color: #888;
+      margin-bottom: 3rem;
+    }
+    
+    .demo-section {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+    
+    .config-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    
+    .config-item label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #bbb;
+      font-weight: 500;
+    }
+    
+    input[type="text"],
+    input[type="color"],
+    select {
+      width: 100%;
+      padding: 0.65rem;
+      border: 1px solid #333;
+      border-radius: 6px;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+    
+    input[type="text"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #555;
+    }
+    
+    input::placeholder {
+      color: #666;
+    }
+    
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+    
+    option {
+      background: #111;
+      color: #e5e5e5;
+    }
+    
+    button {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    button:hover {
+      background: #f0f0f0;
+      transform: translateY(-1px);
+    }
+    
+    .code-block {
+      background: #000;
+      border: 1px solid #222;
+      padding: 1.25rem;
+      border-radius: 6px;
+      font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin-top: 1.5rem;
+      color: #888;
+    }
+    
+    .divider {
+      text-align: center;
+      color: #555;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Uplift AI Assistant Widget</h1>
+    <p class="subtitle">Real-time voice assistant for your website</p>
+    
+    <div class="demo-section">
+      <h2>Widget Configuration</h2>
+      <div class="config-grid">
+        <div class="config-item">
+          <label for="assistant-id">Assistant ID *</label>
+          <input 
+            type="text" 
+            id="assistant-id" 
+            placeholder="your-assistant-id"
+            value=""
+          />
+        </div>
+        
+        <div class="config-item">
+          <label for="base-url">API Base URL</label>
+          <input 
+            type="text" 
+            id="base-url" 
+            placeholder="https://api.upliftai.org"
+            value=""
+          />
+        </div>
+        
+        <div class="config-item">
+          <label for="participant-name">Participant Name</label>
+          <input 
+            type="text" 
+            id="participant-name" 
+            placeholder="Anonymous"
+            value=""
+          />
+        </div>
+        
+        <div class="config-item">
+          <label for="position">Position</label>
+          <select id="position">
+            <option value="bottom-right">Bottom Right</option>
+            <option value="bottom-left">Bottom Left</option>
+            <option value="top-right">Top Right</option>
+            <option value="top-left">Top Left</option>
+          </select>
+        </div>
+        
+        <div class="config-item">
+          <label for="theme">Theme</label>
+          <select id="theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        
+        <div class="config-item">
+          <label for="size">Size</label>
+          <select id="size">
+            <option value="small">Small</option>
+            <option value="medium" selected>Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+        
+        <div class="config-item">
+          <label for="primary-color">Primary Color</label>
+          <input 
+            type="color" 
+            id="primary-color" 
+            value="#3B82F6"
+          />
+        </div>
+        
+        <div class="config-item">
+          <label for="auto-connect">
+            <input type="checkbox" id="auto-connect" />
+            Auto-connect on load
+          </label>
+        </div>
+      </div>
+      
+      <button onclick="applyConfiguration()">Apply Configuration</button>
+      
+      <div class="code-block" id="code-preview">
+        &lt;upliftai-assistant assistant-id="your-assistant-id"&gt;&lt;/upliftai-assistant&gt;
+      </div>
+    </div>
+    
+    <div class="demo-section">
+      <h2>Installation</h2>
+      <div class="code-block">
+npm install @upliftai/assistant-widget</div>
+      <div class="divider">or</div>
+      <div class="code-block">
+&lt;script src="https://cdn.jsdelivr.net/npm/@upliftai/assistant-widget@0.0.1"&gt;&lt;/script&gt;</div>
+    </div>
+  </div>
+  
+  <!-- Widget will be added here dynamically -->
+  <div id="widget-container"></div>
+  
+  <!-- Load the widget script -->
+  <script type="module" src="./src/index.ts"></script>
+  
+  <script>
+    function updateCodePreview() {
+      const assistantId = document.getElementById('assistant-id').value || 'your-assistant-id';
+      const baseUrl = document.getElementById('base-url').value;
+      const participantName = document.getElementById('participant-name').value;
+      const position = document.getElementById('position').value;
+      const theme = document.getElementById('theme').value;
+      const size = document.getElementById('size').value;
+      const primaryColor = document.getElementById('primary-color').value;
+      const autoConnect = document.getElementById('auto-connect').checked;
+      
+      let attributes = [`assistant-id="${assistantId}"`];
+      
+      if (baseUrl) attributes.push(`base-url="${baseUrl}"`);
+      if (participantName) attributes.push(`participant-name="${participantName}"`);
+      if (position !== 'bottom-right') attributes.push(`position="${position}"`);
+      if (theme !== 'light') attributes.push(`theme="${theme}"`);
+      if (size !== 'medium') attributes.push(`size="${size}"`);
+      if (primaryColor !== '#3B82F6') attributes.push(`primary-color="${primaryColor}"`);
+      if (autoConnect) attributes.push('auto-connect="true"');
+      
+      const code = `&lt;upliftai-assistant ${attributes.join(' ')}&gt;&lt;/upliftai-assistant&gt;`;
+      document.getElementById('code-preview').innerHTML = code;
+    }
+    
+    function applyConfiguration() {
+      // Remove existing widget
+      const existingWidget = document.querySelector('upliftai-assistant');
+      if (existingWidget) {
+        existingWidget.remove();
+      }
+      
+      // Create new widget with configuration
+      const widget = document.createElement('upliftai-assistant');
+      
+      const assistantId = document.getElementById('assistant-id').value;
+      if (!assistantId) {
+        alert('Please enter an Assistant ID');
+        return;
+      }
+      
+      widget.setAttribute('assistant-id', assistantId);
+      
+      const baseUrl = document.getElementById('base-url').value;
+      if (baseUrl) widget.setAttribute('base-url', baseUrl);
+      
+      const participantName = document.getElementById('participant-name').value;
+      if (participantName) widget.setAttribute('participant-name', participantName);
+      
+      widget.setAttribute('position', document.getElementById('position').value);
+      widget.setAttribute('theme', document.getElementById('theme').value);
+      widget.setAttribute('size', document.getElementById('size').value);
+      widget.setAttribute('primary-color', document.getElementById('primary-color').value);
+      
+      if (document.getElementById('auto-connect').checked) {
+        widget.setAttribute('auto-connect', 'true');
+      }
+      
+      document.body.appendChild(widget);
+      updateCodePreview();
+      
+      // Show success message
+      const button = event.target;
+      const originalText = button.textContent;
+      button.textContent = '✓ Widget Added!';
+      button.style.background = '#10b981';
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.style.background = '';
+      }, 2000);
+    }
+    
+    // Update code preview when inputs change
+    document.querySelectorAll('input, select').forEach(element => {
+      element.addEventListener('input', updateCodePreview);
+      element.addEventListener('change', updateCodePreview);
+    });
+    
+    // Initial code preview
+    updateCodePreview();
+  </script>
+</body>
+</html>
