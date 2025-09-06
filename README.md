@@ -14,7 +14,7 @@ Sign up at [Uplift AI](https://upliftai.org) and create your first assistant to 
 Add this script tag to your HTML:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@upliftai/assistant-widget@0.0.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/@upliftai/assistant-widget@0.0.2"></script>
 ```
 
 Then add the widget element:
@@ -158,7 +158,7 @@ The widget is automatically available on multiple CDNs after npm publication:
 
 ### unpkg
 ```html
-<script src="https://unpkg.com/@upliftai/assistant-widget@0.0.1"></script>
+<script src="https://unpkg.com/@upliftai/assistant-widget@0.0.2"></script>
 ```
 
 ### jsDelivr (Recommended)
@@ -167,7 +167,7 @@ The widget is automatically available on multiple CDNs after npm publication:
 <script src="https://cdn.jsdelivr.net/npm/@upliftai/assistant-widget@0"></script>
 
 <!-- Specific version -->
-<script src="https://cdn.jsdelivr.net/npm/@upliftai/assistant-widget@0.0.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/@upliftai/assistant-widget@0.0.2"></script>
 ```
 
 ## License
