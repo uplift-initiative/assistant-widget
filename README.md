@@ -1,6 +1,6 @@
 # Uplift AI Assistant Widget
 
-A customizable widget for integrating Uplift AI assistants into any website. Built with Preact and LiveKit for real-time voice conversations.
+A customizable widget for integrating Uplift AI assistants into any website.
 
 
 ## Quick Start

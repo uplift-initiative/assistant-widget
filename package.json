@@ -1,7 +1,7 @@
 {
   "name": "@upliftai/assistant-widget",
   "version": "0.0.1",
-  "description": "A lightweight, customizable widget for Uplift AI assistants with LiveKit integration",
+  "description": "A lightweight, customizable widget for Uplift AI assistants",
   "main": "dist/upliftai-widget.umd.js",
   "module": "dist/upliftai-widget.es.js",
   "types": "dist/index.d.ts",
