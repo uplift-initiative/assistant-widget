@@ -13,8 +13,10 @@ Sign up at [Uplift AI](https://upliftai.org) and create your first assistant to 
 
 Add this script tag to your HTML:
 
+**NOTE** this script is 113KB minified. So it should be fast to load.
+
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@upliftai/assistant-widget@0.0.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@upliftai/assistant-widget@0.0.2" async></script>
 ```
 
 Then add the widget element:
